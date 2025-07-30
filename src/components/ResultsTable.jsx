@@ -1,3 +1,10 @@
 export default function ResultsTable() {
-  return <div id="result"></div>;
+  return (
+    <section id="result">
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  );
 }

@@ -1,53 +1,36 @@
-import { useState } from "react";
-import UserInput from "./UserInput.jsx";
+import UserInput from "./UserInput";
 
-export default function UserInputTable() {
-  const [userInputs, setUserInputs] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  function handleInputChange(inputKey, newValue) {
-    setUserInputs((prevUserInput) => ({
-      ...prevUserInput,
-      [inputKey]: newValue,
-    }));
-  }
-
+export default function UserInputTable({ onChangeInput, input }) {
   return (
     <section id="user-input">
       <div className="input-group">
         <UserInput
           label="Initial Investment"
-          value={userInputs.initialInvestment}
+          value={input.initialInvestment}
           onChange={(event) =>
-            handleInputChange("initialInvestment", event.target.value)
+            onChangeInput("initialInvestment", event.target.value)
           }
         />
         <UserInput
           label="Annual Investment"
-          value={userInputs.annualInvestment}
+          value={input.annualInvestment}
           onChange={(event) =>
-            handleInputChange("annualInvestment", event.target.value)
+            onChangeInput("annualInvestment", event.target.value)
           }
         />
       </div>
       <div className="input-group">
         <UserInput
           label="Expected Return"
-          value={userInputs.expectedReturn}
+          value={input.expectedReturn}
           onChange={(event) =>
-            handleInputChange("expectedReturn", event.target.value)
+            onChangeInput("expectedReturn", event.target.value)
           }
         />
         <UserInput
           label="Duration"
-          value={userInputs.duration}
-          onChange={(event) =>
-            handleInputChange("duration", event.target.value)
-          }
+          value={input.duration}
+          onChange={(event) => onChangeInput("duration", event.target.value)}
         />
       </div>
     </section>
