@@ -14,7 +14,8 @@ function App() {
   function handleInputChange(inputKey, newValue) {
     setUserInputs((prevUserInput) => ({
       ...prevUserInput,
-      [inputKey]: newValue,
+      // adding the + ensures the values are treated as numbers and added together rather than concatenating
+      [inputKey]: +newValue,
     }));
   }
 
@@ -22,7 +23,7 @@ function App() {
     <main>
       <Header />
       <UserInputTable onChangeInput={handleInputChange} input={userInputs} />
-      <ResultsTable />
+      <ResultsTable input={userInputs} />
     </main>
   );
 }

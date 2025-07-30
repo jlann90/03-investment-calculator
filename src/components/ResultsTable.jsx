@@ -1,10 +1,7 @@
-export default function ResultsTable() {
-  return (
-    <section id="result">
-      <table>
-        <thead></thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  );
+import { calculateInvestmentResults } from "../util/investment.js";
+
+export default function ResultsTable({ input }) {
+  const resultsData = calculateInvestmentResults(input);
+  console.log(resultsData);
+  return <section id="result"></section>;
 }
