@@ -1,7 +1,15 @@
+import Header from "./components/Header";
+import UserInputTable from "./components/UserInputTable";
+import ResultsTable from "./components/ResultsTable";
+
 function App() {
   return (
-    <h1>React Investment Calculator</h1>
-  )
+    <main>
+      <Header />
+      <UserInputTable />
+      <ResultsTable />
+    </main>
+  );
 }
 
-export default App
+export default App;
