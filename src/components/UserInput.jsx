@@ -1,21 +1,34 @@
 import { useState } from "react";
 
 export default function UserInput({ label, ...props }) {
-  const [inputNumber, setInputNumber] = useState();
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
+  });
 
-  function handleUpdateNumber(event) {
-    setInputNumber(event.target.value);
+  function handleChange(inputIdentifier, newValue) {
+    setUserInput((prevUserInput) => {
+      return {
+        ...prevUserInput,
+        [inputIdentifier]: newValue,
+      };
+    });
   }
 
   return (
-    <div>
+    <p>
       <label>{label}</label>
       <input
         {...props}
         type="number"
-        value={inputNumber}
-        onChange={handleUpdateNumber}
+        value={userInput.initialInvestment}
+        required
+        onChange={(event) =>
+          handleChange("initialInvestment", event.target.value)
+        }
       />
-    </div>
+    </p>
   );
 }
